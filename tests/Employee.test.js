@@ -16,7 +16,7 @@ describe('Employee class', () => {
         expect(new Employee(eName, eId, eMail).getId()).toBe(eId)
     });
     it("Populates email address as passed to function", () =>{
-        expect(new Employee(eName, eId, eMail).getEmail()).toBe('ianhennessey@fakeemail.com')
+        expect(new Employee(eName, eId, eMail).getEmail()).toBe(eMail)
     });
 
 })
