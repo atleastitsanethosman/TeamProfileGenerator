@@ -4,5 +4,8 @@
   },
   "devDependencies": {
     "jest": "^27.0.4"
+  },
+  "dependencies": {
+    "inquirer": "^8.1.0"
   }
 }
