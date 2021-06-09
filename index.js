@@ -4,6 +4,7 @@ const inquirer = require('inquirer');
 const Engineer = require('./lib/Engineer');
 const Manager = require('./lib/Manager');
 const Intern = require('./lib/Intern');
+const generateHTML = require('./src/generateHTML');
 
 const organization = []
 
@@ -135,6 +136,10 @@ function newIntern() {
     newEmp();
     });
 };
+
+function makePage() {
+
+}
 
 // function to handle choice of new employee to add or end function.
 function newEmp() {
