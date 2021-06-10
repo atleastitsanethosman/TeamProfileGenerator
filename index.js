@@ -123,7 +123,6 @@ const newEmpPrompt = [
 function newEngineer() {
     inquirer.prompt(newEngineerPrompt).then((answers) =>{
         organization.push(new Engineer(answers.name, answers.id, answers.email, answers.github));
-        console.log(JSON.stringify(organization));  //need to remove this line to pass to function.
     newEmp();
     });
 };
@@ -132,19 +131,19 @@ function newEngineer() {
 function newIntern() {
     inquirer.prompt(newInternPrompt).then((answers) =>{
         organization.push(new Intern(answers.name, answers.id, answers.email, answers.school));
-        console.log(JSON.stringify(organization));  //need to remove this line to pass to function.        
     newEmp();
     });
 };
 
-function makePage() {
+function makePage(orgData) {
+    fs.writeFile('./dist/team.html', generateHTML(orgData), (err) =>   
+    err ? console.error(err) : console.log('success!'))
+    };
 
-}
 
 // function to handle choice of new employee to add or end function.
 function newEmp() {
     inquirer.prompt(newEmpPrompt).then((answers) => {
-    console.log(JSON.stringify(answers)); //need to remove this line to pass to actual function.
         switch (answers.employeeType) {
             case "Add an Engineer.":
                 newEngineer();
@@ -152,8 +151,9 @@ function newEmp() {
             case "Add an Intern.":
                 newIntern();
                 break;
-            case "No, I an done.":
-                makePage(); //fill in function to generate HTML.
+            case "No, I am done.":
+                console.log(organization);
+                makePage(organization);
                 break;
         };
     })

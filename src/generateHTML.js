@@ -1,18 +1,22 @@
+const Manager = require('../lib/manager');
+const Engineer = require('../lib/engineer');
+const Intern = require('../lib/intern');
+
 function createEmployee(employees) {
     var htmlCard = ''
     employees.forEach(element => {
-        switch (element.getRole) {
+        switch (element.getRole()) {
             case 'Manager':
                 htmlCard += `
                 <div class="card col-sm-6 col-md-4 col-lg-3">
                     <div class="card-header">
-                        <h2>${element.getName}</h2>
+                        <h2>${element.getName()}</h2>
                         <h3>Manager <i class="bi bi-diagram-3"></i></h3>
                     </div>
                 <ul class="list-group list-group-flush">
-                  <li class="list-group-item">ID: ${element.getId}</li>
-                  <li class="list-group-item">Email: <a href="mailto:${element.getEmail}">${element.getEmail}</a></li>
-                  <li class="list-group-item">Office Number: ${element.getOffice}</li>
+                  <li class="list-group-item">ID: ${element.getId()}</li>
+                  <li class="list-group-item">Email: <a href="mailto:${element.getEmail()}">${element.getEmail()}</a></li>
+                  <li class="list-group-item">Office Number: ${element.getOffice()}</li>
                 </ul>
               </div>
               `
@@ -22,13 +26,13 @@ function createEmployee(employees) {
                 htmlCard +=`
                 <div class="card col-sm-6 col-md-4 col-lg-3">
                     <div class="card-header">
-                        <h2>${element.getName}</h2>
+                        <h2>${element.getName()}</h2>
                         <h3>Engineer <i class="bi bi-tools"></i></h3>
                     </div>
                         <ul class="list-group list-group-flush">
-                            <li class="list-group-item">ID: ${element.getId}</li>
-                            <li class="list-group-item">Email: <a href="mailto:${element.getEmail}">${element.getEmail}</a></li>
-                            <li class="list-group-item">GithubProfile: <a href="https://github.com/${element.getGitHub}" target="_blank">${element.getGitHub}</a></li>
+                            <li class="list-group-item">ID: ${element.getId()}</li>
+                            <li class="list-group-item">Email: <a href="mailto:${element.getEmail()}">${element.getEmail()}</a></li>
+                            <li class="list-group-item">GithubProfile: <a href="https://github.com/${element.getGitHub()}" target="_blank">${element.getGitHub()}</a></li>
                     </ul>
                 </div>`
                 break;
@@ -37,13 +41,13 @@ function createEmployee(employees) {
                 htmlCard +=`
                 <div class="card col-sm-6 col-md-4 col-lg-3">
                     <div class="card-header">
-                        <h2>${element.getName}</h2>
+                        <h2>${element.getName()}</h2>
                         <h3>Intern <i class="bi bi-pencil"></i></h3>
                     </div>
                         <ul class="list-group list-group-flush">
-                            <li class="list-group-item">ID: ${element.getId}</li>
-                            <li class="list-group-item">Email: <a href="mailto:${element.getEmail}">${element.getEmail}</a></li>
-                            <li class="list-group-item">School: ${element.getSchool}</li>
+                            <li class="list-group-item">ID: ${element.getId()}</li>
+                            <li class="list-group-item">Email: <a href="mailto:${element.getEmail()}">${element.getEmail()}</a></li>
+                            <li class="list-group-item">School: ${element.getSchool()}</li>
                     </ul>
                 </div>`
                 break;
@@ -53,7 +57,8 @@ function createEmployee(employees) {
 }
 
 function generateHTML(employees) {
-    `<!DOCTYPE html>
+    return `
+    <!DOCTYPE html>
     <html lang="en">
     <head>
         <meta charset="UTF-8">
